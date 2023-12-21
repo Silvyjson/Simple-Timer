@@ -1,32 +1,32 @@
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: #fff;
 }
 
-.Status-bar{
+.Status-bar {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 50px;
 }
 
-.Status-bar p{
+.Status-bar p {
     font-weight: bold;
     margin-left: 30px;
 }
 
-.Status-bar--Img{
+.Status-bar--Img {
     margin-right: 20px;
 }
 
-.img1{
+.img1 {
     height: 15px;
     width: 15px;
     margin-top: 15px;
 }
 
-.menu{
+.menu {
     display: flex;
     justify-content: space-between;
     margin: 0 15px;
@@ -43,4 +43,51 @@ body{
     height: 4px;
     margin: 3px 0;
     background-color: #333;
+}
+
+.Timer-clock {
+    position: relative;
+    width: 335px;
+    height: 335px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.time {
+    position: absolute;
+    width: 158px;
+    height: 87px;
+    left: 100px;
+    top: 60px;
+
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 87px;
+    letter-spacing: 0.01em;
+    color: #00C2FF;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+}
+
+.circle {
+    width: 335px;
+    height: 335px;
+    border-radius: 50%;
+}
+
+.circle1 {
+    border: 3px solid #D3D3D3;
+}
+
+.circle2 {
+    border: 1px solid #00C2FF;
+    /* box-shadow: 0px 0px 4px #00C2FF; */
+}
+
+
+.circle3 {
+    border: 3px solid #D3D3D3;
 }
