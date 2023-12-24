@@ -86,3 +86,56 @@ body {
     width: 25px;
     height: 25px;
 }
+
+.timer-circle {
+    margin: auto;
+    position: relative;
+    height: 325px;
+    width: 325px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px 0px #d3d3d3 inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.timer-circle--C {
+    height: 295px;
+    width: 295px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #d3d3d3;
+    box-shadow: 0px 0px 7px 0px #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-circle{
+    position: absolute;
+    width: 320px;
+    height: 320px;
+}
+
+#circle1{
+    stroke-width: 1px; 
+    stroke: #d3d3d3;
+}
+
+#circle2 {
+    stroke-width: 2px;
+    stroke: #00c2ff;
+    stroke-dasharray: 973.5000610351562;
+    stroke-dashoffset: -770;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.time {
+    font-size: 64px;
+    color: #00c2ff;
+    letter-spacing: 0.64px;
+    font-weight: 300;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
+}
