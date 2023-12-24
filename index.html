@@ -11,18 +11,33 @@
 <body>
     <div class="status-bar">
         <p>9:06</p>
-        <div>
+        <div class="status-bar--img1" id="status-bar--img1">
             <img src="./image/Group 4.png" alt="network_bar" class="img1">
             <img src="./image/Group 5.png" alt="wifi_bar" class="img1">
             <img src="./image/Group 6.png" alt="battery_bar" class="img1">
         </div>
+        <div class="status-bar--img2" id="status-bar--img2">
+            <img src="./image/Group 4a.png" alt="network_bar" class="img1">
+            <img src="./image/Group 5a.png" alt="wifi_bar" class="img1">
+            <img src="./image/Group 6a.png" alt="battery_bar" class="img1">
+        </div>
     </div>
     <div class="menu">
         <h1>Timer</h1>
-        <div class="menu-icon">
+        <div class="menu-icon" onclick="toggleList()">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
+        </div>
+        <div class="menu-list" id="menu" onclick="toggleMode()">Switch to dark mode</div>
+    </div>
+    <div class="timer-circle">
+        <svg class="svg-circle">
+            <circle id="circle1" cx="160" cy="160" r="155" fill="none"></circle>
+            <circle id="circle2" cx="160" cy="160" r="155" fill="none"></circle>
+        </svg>
+        <div class="timer-circle--C">
+            <h1 class="time">01:40</h1>
         </div>
     </div>
     <div class="action-bar">
@@ -50,6 +65,8 @@
             <img src="./image/Group 629421.png" alt="timer" class="img3">
         </div>
     </div>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
