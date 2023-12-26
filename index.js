@@ -1,4 +1,4 @@
-const listElement = document.getElementById("menu");
+const listElement = document.getElementById ("menu");
 
 const toggleList = () => {
 
@@ -9,32 +9,22 @@ const toggleList = () => {
     }
 }
 
-const hideNavOnScroll = () => {
+function hideMenuList() {
     listElement.style.display = "none";
-}
+};
 
 document.body.addEventListener('click', function (event) {
 
     if (!event.target.closest('.menu') && !event.target.closest('.menu-list')) {
-        hideNavOnScroll();
+        hideMenuList();
     }
 });
 
-const dropdownLinks = document.querySelectorAll('.menu-list');
-dropdownLinks.forEach(link => {
-    link.addEventListener('click', () => {
-
-        hideNavOnScroll();
-    });
-});
-
-window.addEventListener('scroll', hideNavOnScroll);
 
 function toggleMode() {
 
     const body = document.body;
     body.classList.toggle('dark_mode');
-    body.classList.toggle('light_mode');
 
     const statusBarImg1 = document.getElementById("status-bar--img1");
     const statusBarImg2 = document.getElementById("status-bar--img2");
@@ -46,4 +36,6 @@ function toggleMode() {
         statusBarImg1.style.display = "none";
         statusBarImg2.style.display = "block";
     }
+
+    hideMenuList();
 }
