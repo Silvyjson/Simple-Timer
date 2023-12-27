@@ -4,7 +4,9 @@ const toggleList = () => {
 
     if (listElement.style.display === "block") {
         listElement.style.display = "none";
-    } else {
+    } 
+    
+    else {
         listElement.style.display = "block";
     }
 }
@@ -32,7 +34,9 @@ function toggleMode() {
     if (statusBarImg1.style.display === "none") {
         statusBarImg1.style.display = "block";
         statusBarImg2.style.display = "none";
-    } else {
+    } 
+    
+    else {
         statusBarImg1.style.display = "none";
         statusBarImg2.style.display = "block";
     }
@@ -48,7 +52,9 @@ function toggleStart() {
     if (timerStart.style.display === "none") {
         timerStart.style.display = "block";
         timerCircle.style.display = "none";
-    } else {
+    } 
+    
+    else {
         timerStart.style.display = "none";
         timerCircle.style.display = "block";
     }
@@ -60,6 +66,11 @@ const toggleRestart = () => {
 
 }
 
+const numberInput1 = document.getElementById('numberInput1');
+const numberInput2 = document.getElementById('numberInput2');
+const startButton = document.getElementById('startButton');
+
+
 const digitInput = (event, inputElement) => {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace'];
 
@@ -70,10 +81,15 @@ const digitInput = (event, inputElement) => {
     if (event.key >= '0' && event.key <= '9' && inputElement.value.replace(/\D/g).length >= 2) {
         event.preventDefault();
     }
-}
 
-const numberInput1 = document.getElementById('numberInput1');
-const numberInput2 = document.getElementById('numberInput2');
+    if (numberInput1.value.trim() !== '' && numberInput2.value.trim() !== '') {
+        startButton.removeAttribute('disabled');
+    } 
+    
+    else {
+        startButton.setAttribute('disabled', 'true');
+    }
+}
 
 numberInput1.addEventListener('keydown', function (event) {
     digitInput(event, numberInput1);
