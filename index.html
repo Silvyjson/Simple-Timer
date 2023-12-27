@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="status-bar">
+    <section class="status-bar">
         <p>9:06</p>
         <div class="status-bar--img1" id="status-bar--img1">
             <img src="./image/Group 4.png" alt="network_bar" class="img1">
@@ -21,8 +21,8 @@
             <img src="./image/Group 5a.png" alt="wifi_bar" class="img1">
             <img src="./image/Group 6a.png" alt="battery_bar" class="img1">
         </div>
-    </div>
-    <div class="menu">
+    </section>
+    <section class="menu">
         <h1>Timer</h1>
         <div class="menu-icon" onclick="toggleList()">
             <div class="bar"></div>
@@ -30,16 +30,16 @@
             <div class="bar"></div>
         </div>
         <div class="menu-list" id="menu" onclick="toggleMode()">Switch to dark mode</div>
-    </div>
-    <div class="timer--start" id="timer--start">
+    </section>
+    <section class="timer--start" id="timer--start">
         <div class="timer-input">
-            <input type="number">
+            <input type="text" placeholder="min" id="numberInput1">
             <h1>:</h1>
-            <input type="number">
+            <input type="text" placeholder="sec" id="numberInput2">
         </div>
         <button type="button" onclick="toggleStart()">Start</button>
-    </div>
-    <div class="timer-count" id="timer-count">
+    </section>
+    <section class="timer-count" id="timer-count">
         <div class="timer-circle">
             <svg class="svg-circle">
                 <circle id="circle1" cx="160" cy="160" r="155" fill="none"></circle>
@@ -60,8 +60,8 @@
                 <img src="./image/Group 629424.png" alt="refreash-icon" class="img2">
             </div>
         </div>
-    </div>
-    <div class="tool-bar">
+    </section>
+    <section class="tool-bar">
         <div class="tool-bar--container">
             <img src="./image/Group 629419.png" alt="timer" class="img3">
         </div>
@@ -74,7 +74,7 @@
         <div class="tool-bar--container">
             <img src="./image/Group 629421.png" alt="timer" class="img3">
         </div>
-    </div>
+    </section>
 
     <script src="index.js"></script>
 </body>

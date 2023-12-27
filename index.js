@@ -26,8 +26,8 @@ function toggleMode() {
     const body = document.body;
     body.classList.toggle('dark_mode');
 
-    const statusBarImg1 = document.getElementById ("status-bar--img1");
-    const statusBarImg2 = document.getElementById ("status-bar--img2");
+    const statusBarImg1 = document.getElementById("status-bar--img1");
+    const statusBarImg2 = document.getElementById("status-bar--img2");
 
     if (statusBarImg1.style.display === "none") {
         statusBarImg1.style.display = "block";
@@ -42,8 +42,8 @@ function toggleMode() {
 
 function toggleStart() {
 
-    const timerStart = document.getElementById ("timer--start");
-    const timerCircle = document.getElementById ("timer-count");
+    const timerStart = document.getElementById("timer--start");
+    const timerCircle = document.getElementById("timer-count");
 
     if (timerStart.style.display === "none") {
         timerStart.style.display = "block";
@@ -57,5 +57,28 @@ function toggleStart() {
 const toggleRestart = () => {
 
     toggleStart();
-    
+
 }
+
+const digitInput = (event, inputElement) => {
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace'];
+
+    if (!allowedKeys.includes(event.key)) {
+        event.preventDefault();
+    }
+
+    if (event.key >= '0' && event.key <= '9' && inputElement.value.replace(/\D/g).length >= 2) {
+        event.preventDefault();
+    }
+}
+
+const numberInput1 = document.getElementById('numberInput1');
+const numberInput2 = document.getElementById('numberInput2');
+
+numberInput1.addEventListener('keydown', function (event) {
+    digitInput(event, numberInput1);
+});
+
+numberInput2.addEventListener('keydown', function (event) {
+    digitInput(event, numberInput2);
+});
