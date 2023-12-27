@@ -1,4 +1,4 @@
-const listElement = document.getElementById ("menu");
+const listElement = document.getElementById("menu");
 
 const toggleList = () => {
 
@@ -26,8 +26,8 @@ function toggleMode() {
     const body = document.body;
     body.classList.toggle('dark_mode');
 
-    const statusBarImg1 = document.getElementById("status-bar--img1");
-    const statusBarImg2 = document.getElementById("status-bar--img2");
+    const statusBarImg1 = document.getElementById ("status-bar--img1");
+    const statusBarImg2 = document.getElementById ("status-bar--img2");
 
     if (statusBarImg1.style.display === "none") {
         statusBarImg1.style.display = "block";
@@ -38,4 +38,24 @@ function toggleMode() {
     }
 
     hideMenuList();
+}
+
+function toggleStart() {
+
+    const timerStart = document.getElementById ("timer--start");
+    const timerCircle = document.getElementById ("timer-count");
+
+    if (timerStart.style.display === "none") {
+        timerStart.style.display = "block";
+        timerCircle.style.display = "none";
+    } else {
+        timerStart.style.display = "none";
+        timerCircle.style.display = "block";
+    }
+}
+
+const toggleRestart = () => {
+
+    toggleStart();
+    
 }

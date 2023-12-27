@@ -3,6 +3,8 @@
     --secondary-color: #333;
     --main-color: #00C2FF;
     --circle-color: #d3d3d3;
+    --input-color: #f9f9f9;
+    --box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -19,7 +21,6 @@ body {
 }
 
 .img1 {
-    margin-right: 5px;
     height: 15px;
     width: 15px;
 }
@@ -29,7 +30,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
+    padding-left: 10px;
     cursor: pointer;
 }
 
@@ -51,7 +52,7 @@ body {
     align-items: center;
     gap: 20px;
     height: 56px;
-    margin: 50px 0 100px 0;
+    margin: 50px 0;
 }
 
 .action-bar--container {
@@ -69,6 +70,7 @@ body {
 }
 
 .img2 {
+    cursor: pointer;
     width: 20px;
     height: 20px;
 }
@@ -99,6 +101,7 @@ body {
 }
 
 .img3 {
+    cursor: pointer;
     width: 25px;
     height: 25px;
 }
@@ -165,11 +168,12 @@ body {
     right: 1%;
     top: 70%;
     padding: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--input-color);
+    box-shadow: var(--box-shadow);
     text-align: center;
     width: 160px;
     height: 20px;
+    border-radius: 10%;
 }
 
 body.dark_mode {
@@ -195,4 +199,45 @@ body.dark_mode .timer-circle--C {
 
 .status-bar--img2 {
     display: none;
+}
+
+.timer-count {
+    display: none;
+}
+
+/* The Timer Input */
+
+.timer--start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer--start button{
+    width: 150px;
+    height: 50px;
+    display: block;
+    margin: 100px auto;
+    background-color: var(--main-color);
+    border: var(--main-color);
+    font-weight: bold;
+    border-radius: 10%;
+    cursor: pointer;   
+}
+
+.timer-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-input input {
+    background-color: var(--input-color);
+    box-shadow: var(--box-shadow);
+    height: 70px;
+    width: 70px;
+    margin: 50px 0;
+    font-size: larger;
+    font-weight: bold;
 }
