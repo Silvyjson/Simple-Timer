@@ -44,6 +44,10 @@ function toggleMode() {
     hideMenuList();
 }
 
+const numberInput1 = document.getElementById('numberInput1');
+const numberInput2 = document.getElementById('numberInput2');
+const startButton = document.getElementById('startButton');
+
 function toggleStart() {
 
     const timerStart = document.getElementById("timer--start");
@@ -58,6 +62,9 @@ function toggleStart() {
         timerStart.style.display = "none";
         timerCircle.style.display = "block";
     }
+
+    console.log(numberInput1.value)
+    console.log(numberInput2.value)
 }
 
 const toggleRestart = () => {
@@ -65,11 +72,6 @@ const toggleRestart = () => {
     toggleStart();
 
 }
-
-const numberInput1 = document.getElementById('numberInput1');
-const numberInput2 = document.getElementById('numberInput2');
-const startButton = document.getElementById('startButton');
-
 
 const digitInput = (event, inputElement) => {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace'];
