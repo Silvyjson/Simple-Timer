@@ -4,8 +4,8 @@ const toggleList = () => {
 
     if (listElement.style.display === "block") {
         listElement.style.display = "none";
-    } 
-    
+    }
+
     else {
         listElement.style.display = "block";
     }
@@ -34,8 +34,8 @@ function toggleMode() {
     if (statusBarImg1.style.display === "none") {
         statusBarImg1.style.display = "block";
         statusBarImg2.style.display = "none";
-    } 
-    
+    }
+
     else {
         statusBarImg1.style.display = "none";
         statusBarImg2.style.display = "block";
@@ -44,11 +44,46 @@ function toggleMode() {
     hideMenuList();
 }
 
-const numberInput1 = document.getElementById('numberInput1');
-const numberInput2 = document.getElementById('numberInput2');
+
+const minuteInput = document.getElementById('minuteInput');
+const secondInput = document.getElementById('secondInput');
 const startButton = document.getElementById('startButton');
 
 function toggleStart() {
+
+    toggleRestart();
+
+    console.log(minuteInput.value);
+    console.log(secondInput.value);
+
+    const minutes = parseInt(minuteInput.value) || 0;
+    const seconds = parseInt(secondInput.value) || 0;
+
+    const totalSeconds = minutes * 60 + seconds;
+    updateTimer(totalSeconds);
+
+    let remainingSeconds = totalSeconds;
+
+    const intervalValue = setInterval(() => {
+        remainingSeconds--;
+        
+        updateTimer(remainingSeconds);
+        if (remainingSeconds === 0 || minutes === 0) {
+            clearInterval(intervalValue);
+        }
+    }, 1000);
+    
+}
+
+const updateTimer = (seconds = 0) => {
+
+    const timeTextElement = document.getElementById("time-text");
+
+    timeTextElement.innerHTML = `${Math.floor(seconds / 60)}:${seconds % 60}`;
+};
+
+
+const toggleRestart = () => {
 
     const timerStart = document.getElementById("timer--start");
     const timerCircle = document.getElementById("timer-count");
@@ -56,20 +91,10 @@ function toggleStart() {
     if (timerStart.style.display === "none") {
         timerStart.style.display = "block";
         timerCircle.style.display = "none";
-    } 
-    
-    else {
+    } else {
         timerStart.style.display = "none";
         timerCircle.style.display = "block";
     }
-
-    console.log(numberInput1.value)
-    console.log(numberInput2.value)
-}
-
-const toggleRestart = () => {
-
-    toggleStart();
 
 }
 
@@ -77,14 +102,14 @@ const digitInput = (event, inputElement) => {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace'];
 
 
-    if (!allowedKeys.includes(event.key) || (event.key !== "Backspace" && inputElement.value.length ===2)) {
+    if (!allowedKeys.includes(event.key) || (event.key !== "Backspace" && inputElement.value.length === 2)) {
         event.preventDefault();
     }
 
-    if (numberInput1.value.trim() !== '' || numberInput2.value.trim() !== '') {
+    if (minuteInput.value.trim() !== '' || secondInput.value.trim() !== '') {
         startButton.removeAttribute('disabled');
-    } 
-    
+    }
+
     else {
         startButton.setAttribute('disabled', 'true');
     }
@@ -100,5 +125,5 @@ const inputHandler = (inputElement) => {
     });
 }
 
-inputHandler(numberInput1);
-inputHandler(numberInput2);
+inputHandler(minuteInput);
+inputHandler(secondInput);
