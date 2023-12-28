@@ -217,7 +217,7 @@ body.dark_mode .timer-circle--C {
     width: 150px;
     height: 50px;
     display: block;
-    margin: 100px auto;
+    margin: 50px auto;
     background-color: var(--main-color);
     border: var(--main-color);
     font-weight: bold;
@@ -241,3 +241,4 @@ body.dark_mode .timer-circle--C {
     font-size: larger;
     font-weight: bold;
 }
+
