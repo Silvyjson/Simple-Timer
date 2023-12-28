@@ -76,15 +76,12 @@ const toggleRestart = () => {
 const digitInput = (event, inputElement) => {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace'];
 
-    if (!allowedKeys.includes(event.key)) {
+
+    if (!allowedKeys.includes(event.key) || (event.key !== "Backspace" && inputElement.value.length ===2)) {
         event.preventDefault();
     }
 
-    if (event.key >= '0' && event.key <= '9' && inputElement.value.replace(/\D/g).length >= 2) {
-        event.preventDefault();
-    }
-
-    if (numberInput1.value.trim() !== '' && numberInput2.value.trim() !== '') {
+    if (numberInput1.value.trim() !== '' || numberInput2.value.trim() !== '') {
         startButton.removeAttribute('disabled');
     } 
     
