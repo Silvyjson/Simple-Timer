@@ -90,10 +90,15 @@ const digitInput = (event, inputElement) => {
     }
 }
 
-numberInput1.addEventListener('keydown', function (event) {
-    digitInput(event, numberInput1);
-});
+const inputHandler = (inputElement) => {
+    inputElement.addEventListener('keydown', function (event) {
+        digitInput(event, inputElement);
+    });
 
-numberInput2.addEventListener('keydown', function (event) {
-    digitInput(event, numberInput2);
-});
+    inputElement.addEventListener('input', function (event) {
+        digitInput(event, inputElement);
+    });
+}
+
+inputHandler(numberInput1);
+inputHandler(numberInput2);
