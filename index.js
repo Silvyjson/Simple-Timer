@@ -154,3 +154,18 @@ function togglePlay() {
         playTimer();
     }
 }
+
+function toggleRefresh() {
+
+    const minutes = parseInt(minuteInput.value) || 0;
+    const seconds = parseInt(secondInput.value) || 0;
+   
+    let totalSeconds = minutes * 60 + seconds;
+    
+    clearInterval(intervalValue);
+
+    remainingSeconds = totalSeconds;
+    updateTimer(remainingSeconds); 
+    
+    playTimer();
+}
