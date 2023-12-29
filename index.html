@@ -33,9 +33,9 @@
     </section>
     <section class="timer--start" id="timer--start">
         <div class="timer-input">
-            <input type="text" placeholder="min" id="numberInput1">
+            <input type="text" placeholder="min" id="minuteInput">
             <h1>:</h1>
-            <input type="text" placeholder="sec" id="numberInput2">
+            <input type="text" placeholder="sec" id="secondInput">
         </div>
         <button type="button" disabled="disabled" onclick="toggleStart()" id="startButton">Start</button>
     </section>
@@ -46,7 +46,7 @@
                 <circle id="circle2" cx="160" cy="160" r="155" fill="none"></circle>
             </svg>
             <div class="timer-circle--C">
-                <h1 class="time">01:40</h1>
+                <h1 class="time" id="time-text">00:00</h1>
             </div>
         </div>
         <div class="action-bar">
