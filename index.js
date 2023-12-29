@@ -1,15 +1,15 @@
-const listElement = document.getElementById("menu");
 const minuteInput = document.getElementById('minuteInput');
 const secondInput = document.getElementById('secondInput');
 const startButton = document.getElementById('startButton');
 let intervalValue = null;
+let remainingSeconds = 0
+let listElement = document.getElementById("menu");
 
 const toggleList = () => {
 
     if (listElement.style.display === "block") {
         listElement.style.display = "none";
     }
-
     else {
         listElement.style.display = "block";
     }
@@ -32,7 +32,12 @@ function toggleMode() {
     const body = document.body;
     body.classList.toggle('dark_mode');
 
-    listElement.innerHTML = 'Switch to light mode'
+    if (body.classList.contains('dark_mode')) {
+        listElement.innerHTML = 'Switch to light mode';
+    }
+    else {
+        listElement.innerHTML = 'Switch to dark mode';
+    }
 
     const statusBarImg1 = document.getElementById("status-bar--img1");
     const statusBarImg2 = document.getElementById("status-bar--img2");
@@ -41,7 +46,6 @@ function toggleMode() {
         statusBarImg1.style.display = "block";
         statusBarImg2.style.display = "none";
     }
-
     else {
         statusBarImg1.style.display = "none";
         statusBarImg2.style.display = "block";
@@ -60,19 +64,9 @@ function toggleStart() {
     const totalSeconds = minutes * 60 + seconds;
     updateTimer(totalSeconds);
 
-    let remainingSeconds = totalSeconds;
+    remainingSeconds = totalSeconds;
 
-    if (totalSeconds > 0) {
-
-        intervalValue = setInterval(() => {
-            remainingSeconds--;
-
-            updateTimer(remainingSeconds);
-            if (remainingSeconds === 0) {
-                clearInterval(intervalValue);
-            }
-        }, 1000);
-    }
+    playTimer();
 }
 
 const updateTimer = (seconds = 0) => {
@@ -91,7 +85,8 @@ const toggleRestart = () => {
     if (timerStart.style.display === "none") {
         timerStart.style.display = "block";
         timerCircle.style.display = "none";
-    } else {
+    }
+    else {
         timerStart.style.display = "none";
         timerCircle.style.display = "block";
     }
@@ -107,11 +102,9 @@ const digitInput = (event, inputElement) => {
     if (!allowedKeys.includes(event.key) || (!exceptionKeys.includes(event.key) && inputElement.value.length === 2)) {
         event.preventDefault();
     }
-
     if (minuteInput.value.trim() !== '' || secondInput.value.trim() !== '') {
         startButton.removeAttribute('disabled');
     }
-
     else {
         startButton.setAttribute('disabled', 'true');
     }
@@ -129,3 +122,35 @@ const inputHandler = (inputElement) => {
 
 inputHandler(minuteInput);
 inputHandler(secondInput);
+
+const playTimer = () => {
+
+    if (remainingSeconds > 0) {
+        intervalValue = setInterval(() => {
+            remainingSeconds--;
+
+            updateTimer(remainingSeconds);
+            if (remainingSeconds === 0) {
+                pauseTimer();
+            }
+        }, 1000);
+    }
+}
+
+const pauseTimer = () => {
+    clearInterval(intervalValue);
+    intervalValue = null;
+}
+
+function togglePlay() {
+
+    const pauseIcon = document.getElementById("pause");
+
+    if (pauseIcon.src.endsWith('pause-icon.png')) {
+        pauseIcon.src = './image/play-icon.png';
+        pauseTimer();
+    } else {
+        pauseIcon.src = './image/pause-icon.png';
+        playTimer();
+    }
+}
