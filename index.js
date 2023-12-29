@@ -1,4 +1,8 @@
 const listElement = document.getElementById("menu");
+const minuteInput = document.getElementById('minuteInput');
+const secondInput = document.getElementById('secondInput');
+const startButton = document.getElementById('startButton');
+let intervalValue = null;
 
 const toggleList = () => {
 
@@ -28,6 +32,8 @@ function toggleMode() {
     const body = document.body;
     body.classList.toggle('dark_mode');
 
+    listElement.innerHTML = 'Switch to light mode'
+
     const statusBarImg1 = document.getElementById("status-bar--img1");
     const statusBarImg2 = document.getElementById("status-bar--img2");
 
@@ -43,12 +49,6 @@ function toggleMode() {
 
     hideMenuList();
 }
-
-
-const minuteInput = document.getElementById('minuteInput');
-const secondInput = document.getElementById('secondInput');
-const startButton = document.getElementById('startButton');
-let intervalValue = null;
 
 function toggleStart() {
 
@@ -102,9 +102,9 @@ const toggleRestart = () => {
 
 const digitInput = (event, inputElement) => {
     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'ArrowLeft', 'ArrowRight'];
+    const exceptionKeys = ["Backspace", "ArrowLeft", "ArrowRight"];
 
-
-    if (!allowedKeys.includes(event.key) || (event.key !== "Backspace" && event.key !== "ArrowLeft" && event.key !== "ArrowRight" && inputElement.value.length === 2)) {
+    if (!allowedKeys.includes(event.key) || (!exceptionKeys.includes(event.key) && inputElement.value.length === 2)) {
         event.preventDefault();
     }
 
