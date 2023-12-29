@@ -58,14 +58,8 @@ function toggleStart() {
 
     toggleRestart();
 
-    const minutes = parseInt(minuteInput.value) || 0;
-    const seconds = parseInt(secondInput.value) || 0;
-
-    const totalSeconds = minutes * 60 + seconds;
-    updateTimer(totalSeconds);
-
-    remainingSeconds = totalSeconds;
-
+    totalTimer();
+    
     playTimer();
 }
 
@@ -76,6 +70,17 @@ const updateTimer = (seconds = 0) => {
     timeTextElement.innerHTML = `${Math.floor(seconds / 60)}:${seconds % 60}`;
 };
 
+const totalTimer = () => {
+
+    const minutes = parseInt(minuteInput.value) || 0;
+    const seconds = parseInt(secondInput.value) || 0;
+
+    let totalSeconds = minutes * 60 + seconds;
+
+    remainingSeconds = totalSeconds;
+
+    updateTimer(totalSeconds);
+}
 
 const toggleRestart = () => {
 
@@ -156,16 +161,7 @@ function togglePlay() {
 }
 
 function toggleRefresh() {
-
-    const minutes = parseInt(minuteInput.value) || 0;
-    const seconds = parseInt(secondInput.value) || 0;
-   
-    let totalSeconds = minutes * 60 + seconds;
-    
+    totalTimer(),
     clearInterval(intervalValue);
-
-    remainingSeconds = totalSeconds;
-    updateTimer(remainingSeconds); 
-    
     playTimer();
 }
