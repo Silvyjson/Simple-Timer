@@ -53,9 +53,6 @@ function toggleStart() {
 
     toggleRestart();
 
-    console.log(minuteInput.value);
-    console.log(secondInput.value);
-
     const minutes = parseInt(minuteInput.value) || 0;
     const seconds = parseInt(secondInput.value) || 0;
 
@@ -64,15 +61,17 @@ function toggleStart() {
 
     let remainingSeconds = totalSeconds;
 
-    const intervalValue = setInterval(() => {
-        remainingSeconds--;
-        
-        updateTimer(remainingSeconds);
-        if (remainingSeconds === 0 || minutes === 0) {
-            clearInterval(intervalValue);
-        }
-    }, 1000);
-    
+    if (totalSeconds > 0) {
+
+        const intervalValue = setInterval(() => {
+            remainingSeconds--;
+
+            updateTimer(remainingSeconds);
+            if (remainingSeconds === 0) {
+                clearInterval(intervalValue);
+            }
+        }, 1000);
+    }
 }
 
 const updateTimer = (seconds = 0) => {
