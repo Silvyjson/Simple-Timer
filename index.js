@@ -48,6 +48,7 @@ function toggleMode() {
 const minuteInput = document.getElementById('minuteInput');
 const secondInput = document.getElementById('secondInput');
 const startButton = document.getElementById('startButton');
+let intervalValue = null;
 
 function toggleStart() {
 
@@ -63,7 +64,7 @@ function toggleStart() {
 
     if (totalSeconds > 0) {
 
-        const intervalValue = setInterval(() => {
+        intervalValue = setInterval(() => {
             remainingSeconds--;
 
             updateTimer(remainingSeconds);
@@ -95,13 +96,15 @@ const toggleRestart = () => {
         timerCircle.style.display = "block";
     }
 
+    clearInterval(intervalValue);
+
 }
 
 const digitInput = (event, inputElement) => {
-    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace'];
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'ArrowLeft', 'ArrowRight'];
 
 
-    if (!allowedKeys.includes(event.key) || (event.key !== "Backspace" && inputElement.value.length === 2)) {
+    if (!allowedKeys.includes(event.key) || (event.key !== "Backspace" && event.key !== "ArrowLeft" && event.key !== "ArrowRight" && inputElement.value.length === 2)) {
         event.preventDefault();
     }
 
