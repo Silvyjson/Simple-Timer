@@ -1,9 +1,14 @@
 const minuteInput = document.getElementById('minuteInput');
 const secondInput = document.getElementById('secondInput');
 const startButton = document.getElementById('startButton');
+const body = document.body;
+const statusBarImg1 = document.getElementById("status-bar--img1");
+const statusBarImg2 = document.getElementById("status-bar--img2");
 let intervalValue = null;
 let remainingSeconds = 0
-let listElement = document.getElementById("menu");
+const listElement = document.getElementById("menu");
+const pauseIcon = document.getElementById("pause");
+
 
 const toggleList = () => {
 
@@ -25,10 +30,6 @@ document.body.addEventListener('click', function (event) {
         hideMenuList();
     }
 });
-
-const body = document.body;
-const statusBarImg1 = document.getElementById("status-bar--img1");
-const statusBarImg2 = document.getElementById("status-bar--img2");
 
 function toggleMode() {
 
@@ -74,6 +75,13 @@ function toggleStart() {
 
     toggleDelete();
 
+    totalTimer();
+
+    playTimer();
+}
+
+const totalTimer = () => {
+
     const minutes = parseInt(minuteInput.value) || 0;
     const seconds = parseInt(secondInput.value) || 0;
 
@@ -82,8 +90,6 @@ function toggleStart() {
     remainingSeconds = totalSeconds;
 
     updateTimer(totalSeconds);
-    
-    playTimer();
 }
 
 const updateTimer = (seconds = 0) => {
@@ -159,9 +165,6 @@ const pauseTimer = () => {
     intervalValue = null;
 };
 
-const pauseIcon = document.getElementById("pause");
-
-
 function togglePlay() {
 
 
@@ -177,20 +180,13 @@ function togglePlay() {
 function toggleRefresh() {
     pauseTimer();
 
-    const minutes = parseInt(minuteInput.value) || 0;
-    const seconds = parseInt(secondInput.value) || 0;
-
-    const totalSeconds = minutes * 60 + seconds;
-
-    remainingSeconds = totalSeconds;
-
-    updateTimer(totalSeconds);
+    totalTimer();
 
     if (pauseIcon.src.endsWith('play-icon.png')) {
         pauseIcon.src = './image/pause-icon.png';
         playTimer();
     }
-    else{
+    else {
         pauseIcon.src = './image/pause-icon.png';
         playTimer();
     }
