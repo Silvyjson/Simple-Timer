@@ -26,21 +26,22 @@ document.body.addEventListener('click', function (event) {
     }
 });
 
+const body = document.body;
+const statusBarImg1 = document.getElementById("status-bar--img1");
+const statusBarImg2 = document.getElementById("status-bar--img2");
 
 function toggleMode() {
 
-    const body = document.body;
     body.classList.toggle('dark_mode');
 
     if (body.classList.contains('dark_mode')) {
         listElement.innerHTML = 'Switch to light mode';
+        localStorage.setItem('currentMode', 'darkMode');
     }
     else {
         listElement.innerHTML = 'Switch to dark mode';
+        localStorage.setItem('currentMode', 'lightMode');
     }
-
-    const statusBarImg1 = document.getElementById("status-bar--img1");
-    const statusBarImg2 = document.getElementById("status-bar--img2");
 
     if (statusBarImg1.style.display === "none") {
         statusBarImg1.style.display = "block";
@@ -53,6 +54,21 @@ function toggleMode() {
 
     hideMenuList();
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const storedMode = localStorage.getItem('currentMode');
+
+    if (storedMode === 'darkMode') {
+        body.classList.toggle('dark_mode');
+        listElement.innerHTML = 'Switch to light mode';
+        statusBarImg1.style.display = 'none';
+        statusBarImg2.style.display = 'block';
+    } else {
+        listElement.innerHTML = 'Switch to dark mode';
+        statusBarImg1.style.display = 'block';
+        statusBarImg2.style.display = 'none';
+    }
+});
 
 function toggleStart() {
 
@@ -179,6 +195,3 @@ function toggleRefresh() {
         playTimer();
     }
 }
-
-
-
