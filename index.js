@@ -56,9 +56,16 @@ function toggleMode() {
 
 function toggleStart() {
 
-    toggleRestart();
+    toggleDelete();
 
-    totalTimer();
+    const minutes = parseInt(minuteInput.value) || 0;
+    const seconds = parseInt(secondInput.value) || 0;
+
+    let totalSeconds = minutes * 60 + seconds;
+
+    remainingSeconds = totalSeconds;
+
+    updateTimer(totalSeconds);
     
     playTimer();
 }
@@ -70,19 +77,8 @@ const updateTimer = (seconds = 0) => {
     timeTextElement.innerHTML = `${Math.floor(seconds / 60)}:${seconds % 60}`;
 };
 
-const totalTimer = () => {
 
-    const minutes = parseInt(minuteInput.value) || 0;
-    const seconds = parseInt(secondInput.value) || 0;
-
-    let totalSeconds = minutes * 60 + seconds;
-
-    remainingSeconds = totalSeconds;
-
-    updateTimer(totalSeconds);
-}
-
-const toggleRestart = () => {
+const toggleDelete = () => {
 
     const timerStart = document.getElementById("timer--start");
     const timerCircle = document.getElementById("timer-count");
@@ -145,11 +141,13 @@ const playTimer = () => {
 const pauseTimer = () => {
     clearInterval(intervalValue);
     intervalValue = null;
-}
+};
+
+const pauseIcon = document.getElementById("pause");
+
 
 function togglePlay() {
 
-    const pauseIcon = document.getElementById("pause");
 
     if (pauseIcon.src.endsWith('pause-icon.png')) {
         pauseIcon.src = './image/play-icon.png';
@@ -161,7 +159,26 @@ function togglePlay() {
 }
 
 function toggleRefresh() {
-    totalTimer(),
-    clearInterval(intervalValue);
-    playTimer();
+    pauseTimer();
+
+    const minutes = parseInt(minuteInput.value) || 0;
+    const seconds = parseInt(secondInput.value) || 0;
+
+    const totalSeconds = minutes * 60 + seconds;
+
+    remainingSeconds = totalSeconds;
+
+    updateTimer(totalSeconds);
+
+    if (pauseIcon.src.endsWith('play-icon.png')) {
+        pauseIcon.src = './image/pause-icon.png';
+        playTimer();
+    }
+    else{
+        pauseIcon.src = './image/pause-icon.png';
+        playTimer();
+    }
 }
+
+
+
