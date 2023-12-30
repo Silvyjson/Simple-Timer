@@ -4,6 +4,7 @@
     --main-color: #00C2FF;
     --circle-color: #d3d3d3;
     --input-color: #f9f9f9;
+    --hover-bg-color: #00C2FF3D;
     --box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -69,6 +70,10 @@ body {
     background-color: var(--main-color);
 }
 
+.action-bar--icon:hover{
+background-color: var(--hover-bg-color);
+}
+
 .img2 {
     cursor: pointer;
     width: 20px;
@@ -97,7 +102,7 @@ body {
 }
 
 .sand-timer {
-    background-color: #00C2FF3D;
+    background-color: var(--hover-bg-color);
 }
 
 .img3 {
