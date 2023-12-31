@@ -151,9 +151,10 @@ background-color: var(--hover-bg-color);
     stroke-width: 2px;
     stroke: var(--main-color);
     stroke-dasharray: 973.5000610351562;
-    stroke-dashoffset: -770;
+    stroke-dashoffset: -973.5000610351562;
     transform: rotate(-90deg);
     transform-origin: center;
+    transition: stroke-dashoffset 1s linear;
 }
 
 .time {
