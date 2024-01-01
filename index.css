@@ -14,16 +14,8 @@ body {
     background-color: var(--primary-color);
 }
 
-.status-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#currentTime {
     padding: 0 10px 0 30px;
-}
-
-.img1 {
-    height: 15px;
-    width: 15px;
 }
 
 .menu {
@@ -74,7 +66,7 @@ body {
 background-color: var(--hover-bg-color);
 }
 
-.img2 {
+.img1 {
     cursor: pointer;
     width: 20px;
     height: 20px;
@@ -101,7 +93,7 @@ background-color: var(--hover-bg-color);
     height: 64px;
 }
 
-.img3 {
+.img2 {
     cursor: pointer;
     width: 25px;
     height: 25px;

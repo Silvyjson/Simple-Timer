@@ -2,12 +2,13 @@ const minuteInput = document.getElementById("minuteInput");
 const secondInput = document.getElementById("secondInput");
 const startButton = document.getElementById("startButton");
 const body = document.body;
-const statusBarImg1 = document.getElementById("status-bar--img1");
-const statusBarImg2 = document.getElementById("status-bar--img2");
+
 let intervalValue = null;
 let remainingSeconds = 0;
+
 const listElement = document.getElementById("menu");
 const pauseIcon = document.getElementById("pause");
+
 let circleElement = document.getElementById("circle2");
 let totalCircleLength = 0
 totalSeconds = 0;
@@ -24,7 +25,7 @@ const toggleTime = () => {
     const ampm = hours >= 12 ? 'pm' : 'am';
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes
-    
+
 
     const currentTimeString = `${formattedHours}:${formattedMinutes} ${ampm}`;
 
@@ -64,14 +65,6 @@ function toggleMode() {
         localStorage.setItem("currentMode", "lightMode");
     }
 
-    if (statusBarImg1.style.display === "none") {
-        statusBarImg1.style.display = "block";
-        statusBarImg2.style.display = "none";
-    } else {
-        statusBarImg1.style.display = "none";
-        statusBarImg2.style.display = "block";
-    }
-
     hideMenuList();
 }
 
@@ -81,12 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storedMode === "darkMode") {
         body.classList.toggle("dark_mode");
         listElement.innerHTML = "Switch to light mode";
-        statusBarImg1.style.display = "none";
-        statusBarImg2.style.display = "block";
     } else {
         listElement.innerHTML = "Switch to dark mode";
-        statusBarImg1.style.display = "block";
-        statusBarImg2.style.display = "none";
     }
 });
 

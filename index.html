@@ -9,20 +9,8 @@
 </head>
 
 <body>
-    <section class="status-bar">
-        <p id="currentTime">00:00</p>
-        <div class="status-bar--img1" id="status-bar--img1">
-            <img src="./image/Group 4.png" alt="network_bar" class="img1">
-            <img src="./image/Group 5.png" alt="wifi_bar" class="img1">
-            <img src="./image/Group 6.png" alt="battery_bar" class="img1">
-        </div>
-        <div class="status-bar--img2" id="status-bar--img2">
-            <img src="./image/Group 4a.png" alt="network_bar" class="img1">
-            <img src="./image/Group 5a.png" alt="wifi_bar" class="img1">
-            <img src="./image/Group 6a.png" alt="battery_bar" class="img1">
-        </div>
-    </section>
-    <section class="menu">
+    <p id="currentTime">00:00</p>
+    <header class="menu">
         <h1 id="header">Timer</h1>
         <div class="menu-icon" onclick="toggleList()">
             <div class="bar"></div>
@@ -30,7 +18,8 @@
             <div class="bar"></div>
         </div>
         <div class="menu-list" id="menu" onclick="toggleMode()">Switch to dark mode</div>
-    </section>
+    </header>
+
     <section class="sand-timer">
         <section class="timer--start" id="timer--start">
             <div class="timer-input">
@@ -52,17 +41,18 @@
             </div>
             <div class="action-bar">
                 <div class="action-bar--container action-bar--icon">
-                    <img src="./image/heroicons-solid_trash.png" alt="trash-icon" class="img2" onclick="toggleDelete()">
+                    <img src="./image/heroicons-solid_trash.png" alt="trash-icon" class="img1" onclick="toggleDelete()">
                 </div>
                 <div class="action-bar--container pause-icon">
-                    <img src="./image/pause-icon.png" alt="pause-icon" class="img2" id="pause" onclick="togglePlay()">
+                    <img src="./image/pause-icon.png" alt="pause-icon" class="img1" id="pause" onclick="togglePlay()">
                 </div>
                 <div class="action-bar--container action-bar--icon">
-                    <img src="./image/Group 629424.png" alt="refreash-icon" class="img2" onclick="toggleRefresh()">
+                    <img src="./image/Group 629424.png" alt="refreash-icon" class="img1" onclick="toggleRefresh()">
                 </div>
             </div>
         </section>
     </section>
+
     <section class="stop-watch">
         <div class="timer-circle">
             <svg class="svg-circle">
@@ -85,20 +75,21 @@
             </div>
         </div>
     </section>
-    <section class="tool-bar">
+
+    <footer class="tool-bar">
         <div class="tool-bar--container">
-            <img src="./image/Group 629419.png" alt="Alarm" class="img3">
+            <img src="./image/Group 629419.png" alt="Alarm" class="img2">
         </div>
         <div class="tool-bar--container">
-            <img src="./image/Group 629420.png" alt="worldClock" class="img3">
+            <img src="./image/Group 629420.png" alt="worldClock" class="img2">
         </div>
         <div class="tool-bar--container sand-timer--icon">
-            <img src="./image/Group 19.png" alt="sandTimer" class="img3" onclick="toggleSandTimer()">
+            <img src="./image/Group 19.png" alt="sandTimer" class="img2" onclick="toggleSandTimer()">
         </div>
         <div class="tool-bar--container stop-watch--icon">
-            <img src="./image/Group 629421.png" alt="stopWatch" class="img3" onclick="toggleStopwatch()">
+            <img src="./image/Group 629421.png" alt="stopWatch" class="img2" onclick="toggleStopwatch()">
         </div>
-    </section>
+    </footer>
 
     <script src="index.js"></script>
     <script src="style.js"></script>
