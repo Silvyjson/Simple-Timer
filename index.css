@@ -101,10 +101,6 @@ background-color: var(--hover-bg-color);
     height: 64px;
 }
 
-.sand-timer {
-    background-color: var(--hover-bg-color);
-}
-
 .img3 {
     cursor: pointer;
     width: 25px;
@@ -142,12 +138,12 @@ background-color: var(--hover-bg-color);
     height: 320px;
 }
 
-#circle1 {
+#circle1, #circleA1 {
     stroke-width: 1px;
     stroke: var(--circle-color);
 }
 
-#circle2 {
+#circle2, #circleA2 {
     stroke-width: 2px;
     stroke: var(--main-color);
     stroke-dasharray: 973.5000610351562;
@@ -248,3 +244,13 @@ body.dark_mode .timer-circle--C {
     font-weight: bold;
 }
 
+/* the Stop watch */
+
+.stop-watch{
+    display: none;
+}
+
+.refreashBtn{
+    pointer-events: none;
+    opacity:  0.3;
+}

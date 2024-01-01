@@ -23,7 +23,7 @@
         </div>
     </section>
     <section class="menu">
-        <h1>Timer</h1>
+        <h1 id="header">Timer</h1>
         <div class="menu-icon" onclick="toggleList()">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -31,52 +31,77 @@
         </div>
         <div class="menu-list" id="menu" onclick="toggleMode()">Switch to dark mode</div>
     </section>
-    <section class="timer--start" id="timer--start">
-        <div class="timer-input">
-            <input type="text" placeholder="min" id="minuteInput">
-            <h1>:</h1>
-            <input type="text" placeholder="sec" id="secondInput">
-        </div>
-        <button type="button" disabled="disabled" onclick="toggleStart()" id="startButton">Start</button>
+    <section class="sand-timer">
+        <section class="timer--start" id="timer--start">
+            <div class="timer-input">
+                <input type="text" placeholder="min" id="minuteInput">
+                <h1>:</h1>
+                <input type="text" placeholder="sec" id="secondInput">
+            </div>
+            <button type="button" disabled="disabled" onclick="toggleStart()" id="startButton">Start</button>
+        </section>
+        <section class="timer-count" id="timer-count">
+            <div class="timer-circle">
+                <svg class="svg-circle">
+                    <circle id="circle1" cx="160" cy="160" r="155" fill="none"></circle>
+                    <circle id="circle2" cx="160" cy="160" r="155" fill="none"></circle>
+                </svg>
+                <div class="timer-circle--C">
+                    <h1 class="time" id="time-text">00:00</h1>
+                </div>
+            </div>
+            <div class="action-bar">
+                <div class="action-bar--container action-bar--icon">
+                    <img src="./image/heroicons-solid_trash.png" alt="trash-icon" class="img2" onclick="toggleDelete()">
+                </div>
+                <div class="action-bar--container pause-icon">
+                    <img src="./image/pause-icon.png" alt="pause-icon" class="img2" id="pause" onclick="togglePlay()">
+                </div>
+                <div class="action-bar--container action-bar--icon">
+                    <img src="./image/Group 629424.png" alt="refreash-icon" class="img2" onclick="toggleRefresh()">
+                </div>
+            </div>
+        </section>
     </section>
-    <section class="timer-count" id="timer-count">
+    <section class="stop-watch">
         <div class="timer-circle">
             <svg class="svg-circle">
-                <circle id="circle1" cx="160" cy="160" r="155" fill="none"></circle>
-                <circle id="circle2" cx="160" cy="160" r="155" fill="none"></circle>
+                <circle id="circleA1" cx="160" cy="160" r="155" fill="none"></circle>
+                <circle id="circleA2" cx="160" cy="160" r="155" fill="none"></circle>
             </svg>
             <div class="timer-circle--C">
-                <h1 class="time" id="time-text">00:00</h1>
+                <h1 class="time" id="stopwatch-text">00:00.00</h1>
             </div>
         </div>
         <div class="action-bar">
-            <div class="action-bar--container action-bar--icon">
-                <img src="./image/heroicons-solid_trash.png" alt="trash-icon" class="img2" onclick="toggleDelete()">
+            <div class="action-bar--container action-bar--icon refreashBtn">
+                <img src="./image/Group 629424.png" alt="refreash-icon" class="img2" onclick="toggleRefreshStopWatch()">
             </div>
             <div class="action-bar--container pause-icon">
-                <img src="./image/pause-icon.png" alt="pause-icon" class="img2" id="pause" onclick="togglePlay()">
+                <img src="./image/play-icon.png" alt="pause-icon" class="img2" id="pausePlay" onclick="togglePlayStopWatch()">
             </div>
             <div class="action-bar--container action-bar--icon">
-                <img src="./image/Group 629424.png" alt="refreash-icon" class="img2" onclick="toggleRefresh()">
+                <img src="./image/Group 629421.png" alt="stopWatch" class="img2">
             </div>
         </div>
     </section>
     <section class="tool-bar">
         <div class="tool-bar--container">
-            <img src="./image/Group 629419.png" alt="timer" class="img3">
+            <img src="./image/Group 629419.png" alt="Alarm" class="img3">
         </div>
         <div class="tool-bar--container">
-            <img src="./image/Group 629420.png" alt="timer" class="img3">
+            <img src="./image/Group 629420.png" alt="worldClock" class="img3">
         </div>
-        <div class="tool-bar--container sand-timer">
-            <img src="./image/Group 19.png" alt="timer" class="img3">
+        <div class="tool-bar--container sand-timer--icon">
+            <img src="./image/Group 19.png" alt="sandTimer" class="img3" onclick="toggleSandTimer()">
         </div>
-        <div class="tool-bar--container">
-            <img src="./image/Group 629421.png" alt="timer" class="img3">
+        <div class="tool-bar--container stop-watch--icon">
+            <img src="./image/Group 629421.png" alt="stopWatch" class="img3" onclick="toggleStopwatch()">
         </div>
     </section>
 
     <script src="index.js"></script>
+    <script src="style.js"></script>
 </body>
 
 </html>
