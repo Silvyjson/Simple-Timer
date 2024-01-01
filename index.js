@@ -12,6 +12,29 @@ let circleElement = document.getElementById("circle2");
 let totalCircleLength = 0
 totalSeconds = 0;
 
+const toggleTime = () => {
+    let currentTime = document.getElementById("currentTime");
+
+    const now = new Date();
+
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+
+
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes
+    
+
+    const currentTimeString = `${formattedHours}:${formattedMinutes} ${ampm}`;
+
+    currentTime.textContent = currentTimeString;
+}
+
+setInterval(toggleTime, 60000);
+
+toggleTime();
+
 const toggleList = () => {
     if (listElement.style.display === "block") {
         listElement.style.display = "none";
@@ -90,7 +113,7 @@ const updateTimer = (seconds = 0) => {
     const timeTextElement = document.getElementById("time-text");
 
     const percentageLeft = (seconds * 100) / totalSeconds;
-    circleElement.style.strokeDashoffset = -totalCircleLength * (percentageLeft/100)
+    circleElement.style.strokeDashoffset = -totalCircleLength * (percentageLeft / 100)
 
     timeTextElement.innerHTML = `${Math.floor(seconds / 60)}:${seconds % 60}`;
 };
