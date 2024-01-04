@@ -20,6 +20,16 @@
         <div class="menu-list" id="menu" onclick="toggleMode()">Switch to dark mode</div>
     </header>
 
+    <section class="worldClock">
+        <div class="clock">
+            <div class="hour"></div>
+            <div class="min"></div>
+            <div class="sec"></div>
+        </div>
+        <p id="clockTime"></p>
+        <p id="currentDate"></p>
+    </section>
+
     <section class="sand-timer">
         <section class="timer--start" id="timer--start">
             <div class="timer-input">
@@ -68,7 +78,8 @@
                 <img src="./image/Group 629424.png" alt="refreash-icon" class="img2" onclick="toggleRefreshStopWatch()">
             </div>
             <div class="action-bar--container pause-icon">
-                <img src="./image/play-icon.png" alt="pause-icon" class="img2" id="pausePlay" onclick="togglePlayStopWatch()">
+                <img src="./image/play-icon.png" alt="pause-icon" class="img2" id="pausePlay"
+                    onclick="togglePlayStopWatch()">
             </div>
             <div class="action-bar--container action-bar--icon">
                 <img src="./image/Group 629421.png" alt="stopWatch" class="img2">
@@ -80,8 +91,8 @@
         <div class="tool-bar--container">
             <img src="./image/Group 629419.png" alt="Alarm" class="img2">
         </div>
-        <div class="tool-bar--container">
-            <img src="./image/Group 629420.png" alt="worldClock" class="img2">
+        <div class="tool-bar--container clock--icon">
+            <img src="./image/Group 629420.png" alt="worldClock" class="img2" onclick="toggleClock()">
         </div>
         <div class="tool-bar--container sand-timer--icon">
             <img src="./image/Group 19.png" alt="sandTimer" class="img2" onclick="toggleSandTimer()">
@@ -92,7 +103,9 @@
     </footer>
 
     <script src="index.js"></script>
-    <script src="style.js"></script>
+    <script src="clock.js"></script>
+    <script src="timer.js"></script>
+    <script src="stopWatch.js"></script>
 </body>
 
 </html>
