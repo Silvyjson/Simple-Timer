@@ -198,10 +198,6 @@ body.dark_mode .clock{
     background-color: var(--secondary-color);
 }
 
-.status-bar--img2 {
-    display: none;
-}
-
 .timer-count {
     display: none;
 }
