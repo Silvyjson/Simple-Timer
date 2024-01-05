@@ -1,4 +1,5 @@
 const RefreshClock = document.querySelector(`.refreashBtn`)
+const circle = document.getElementById('circleA2');
 
 let playStopwatch = null;
 let pausePlayIcon = document.getElementById("pausePlay");
@@ -33,11 +34,14 @@ function togglePlayStopWatch() {
     if (pausePlayIcon.src.endsWith("play-icon.png")) {
         pausePlayIcon.src = "./image/pause-icon.png";
         RefreshClock.classList.add("refreashBtn")
+        circle.classList.add('animate');
+
         playStop();
 
     } else {
         pausePlayIcon.src = "./image/play-icon.png";
         RefreshClock.classList.remove("refreashBtn")
+        circle.classList.remove('animate');
         clearInterval(playStopwatch);
     }
 }
