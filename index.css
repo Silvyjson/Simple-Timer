@@ -262,7 +262,7 @@ body.dark_mode .clock {
 .worldClock {
     width: 100%;
     height: 100%;
-    margin: 0;
+    margin: 70px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
