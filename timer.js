@@ -95,6 +95,10 @@ const inputHandler = (inputElement) => {
     inputElement.addEventListener("input", function (event) {
         digitInput(event, inputElement);
     });
+
+    inputElement.addEventListener("touchstart", function (event) {
+        digitInput(event, inputElement);
+    });
 };
 
 inputHandler(minuteInput);
