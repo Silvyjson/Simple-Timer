@@ -56,49 +56,49 @@ const toggleDelete = () => {
     clearInterval(intervalValue);
 };
 
-const digitInput = (event, inputElement) => {
+const digitInput = (inputElement) => {
     const allowedKeys = [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "Backspace",
-        "ArrowLeft",
-        "ArrowRight",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "Backspace",
+      "ArrowLeft",
+      "ArrowRight",
     ];
     const exceptionKeys = ["Backspace", "ArrowLeft", "ArrowRight"];
-
-    if (
-        !allowedKeys.includes(event.key) ||
-        (!exceptionKeys.includes(event.key) && inputElement.value.length === 2)
-    ) {
-        event.preventDefault();
+  
+    let newValue = "";
+    for (let i = 0; i < inputElement.value.length; i++) {
+      const char = inputElement.value[i];
+      if (allowedKeys.includes(char)) {
+        newValue += char;
+      }
     }
+  
+    inputElement.value = newValue.slice(0, 2);
+  
     if (minuteInput.value.trim() !== "" || secondInput.value.trim() !== "") {
-        startButton.removeAttribute("disabled");
+      startButton.removeAttribute("disabled");
     } else {
-        startButton.setAttribute("disabled", "true");
+      startButton.setAttribute("disabled", "true");
     }
-};
-
-const inputHandler = (inputElement) => {
-    inputElement.addEventListener("keydown", function (event) {
-        digitInput(event, inputElement);
+  };
+  
+  const inputHandler = (inputElement) => {
+    inputElement.addEventListener("input", () => {
+      digitInput(inputElement);
     });
-
-    inputElement.addEventListener("input", function (event) {
-        digitInput(event, inputElement);
-    });
-};
-
-inputHandler(minuteInput);
-inputHandler(secondInput);
+  };
+  
+  inputHandler(minuteInput);
+  inputHandler(secondInput);
 
 const playTimer = () => {
     if (remainingSeconds > 0) {
